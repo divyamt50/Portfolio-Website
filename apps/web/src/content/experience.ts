@@ -3,7 +3,6 @@ import type { Experience } from "@/lib/types";
 // Source of truth: Divyam_s_Resume.pdf (July 2026). Numbers are his stated claims.
 export const experience: Experience[] = [
   {
-    company: "Irish Taylor",
     title: "Software Development Engineer II · Backend Lead",
     location: "Remote / India",
     period: "Sept 2023 — Present",
@@ -15,7 +14,6 @@ export const experience: Experience[] = [
     ],
   },
   {
-    company: "Independent Backend Consultant",
     title: "Backend Engineer",
     location: "Remote",
     period: "May 2021 — Sept 2023",

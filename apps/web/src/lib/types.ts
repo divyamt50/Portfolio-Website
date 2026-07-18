@@ -17,7 +17,6 @@ export type Project = {
 export type Skill = { name: string; category: "languages" | "frameworks" | "infra" | "ai" };
 
 export type Experience = {
-  company: string;
   title: string;
   location?: string;
   period: string;
@@ -36,7 +35,6 @@ export type Site = {
   headline: string;
   about_mdx: string;
   location: string;
-  availability: string;
   email?: string;
   phone?: string;
   resume_url?: string;
