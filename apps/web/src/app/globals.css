@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Control-plane palette: deep blue-slate ground, warm off-white type,
+     signal amber for human action, trace cyan reserved for machine/data. */
+  --color-ink-950: #0a0e16;
+  --color-ink-900: #101624;
+  --color-ink-800: #151e33;
+  --color-line: #232d45;
+  --color-line-soft: #1a2338;
+  --color-fg: #e9e6dc;
+  --color-fg-muted: #8c95a8;
+  --color-fg-faint: #5c667c;
+  --color-amber: #e8a33d;
+  --color-cyan: #5fb4c9;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-ink-950);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-amber) 30%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---- Signature: request-trace waterfall (pure CSS, no JS) ---- */
+
+.trace-bar {
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .trace-bar {
+    animation: trace-grow 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+  .pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: var(--color-amber);
+    animation: dot-pulse 2.4s ease-out infinite;
+  }
+  .reveal {
+    animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+}
+
+@keyframes trace-grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes dot-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Case-study prose: warm measure, display headings, amber links */
+.prose-site {
+  --tw-prose-body: var(--color-fg-muted);
+  --tw-prose-headings: var(--color-fg);
+  --tw-prose-bold: var(--color-fg);
+  --tw-prose-links: var(--color-amber);
+  --tw-prose-code: var(--color-cyan);
+  --tw-prose-quotes: var(--color-fg);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-th-borders: var(--color-line);
+  --tw-prose-td-borders: var(--color-line-soft);
+}
+
+.prose-site :is(h1, h2, h3) {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.prose-site code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
