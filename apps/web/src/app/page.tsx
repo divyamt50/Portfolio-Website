@@ -52,10 +52,10 @@ export default async function Home() {
       {/* Hero — the LCP element renders visible; only decoration animates. */}
       <section className="mx-auto grid w-full max-w-5xl gap-12 px-5 pt-10 pb-16 sm:px-8 sm:pt-16 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-14">
         <div>
-          <p className="relative flex items-center gap-2.5 font-mono text-xs text-fg-muted">
+          {/* <p className="relative flex items-center gap-2.5 font-mono text-xs text-fg-muted">
             <span className="pulse-dot relative inline-block size-1.5 rounded-full bg-amber" aria-hidden />
             {site.availability}
-          </p>
+          </p> */}
           <h1 className="mt-5 font-display text-5xl leading-[1.05] tracking-tight text-fg sm:text-6xl">
             {site.name}
           </h1>
