@@ -122,7 +122,7 @@ export default async function Home() {
       </Section>
 
       {experience.length > 0 && (
-        <Section id="experience" eyebrow="experience" title="Where I've done it">
+        <Section id="experience" eyebrow="experience" title="What I've done till now">
           <ol className="space-y-12">
             {experience.map((role) => (
               <li
