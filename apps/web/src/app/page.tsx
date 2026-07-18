@@ -126,11 +126,10 @@ export default async function Home() {
           <ol className="space-y-12">
             {experience.map((role) => (
               <li
-                key={`${role.company}-${role.period}`}
+                key={`${role.period}`}
                 className="grid gap-3 lg:grid-cols-[16rem_1fr] lg:gap-8"
               >
                 <div>
-                  <h3 className="font-display text-lg text-fg">{role.company}</h3>
                   <p className="mt-1 text-sm text-fg-muted">{role.title}</p>
                   <p className="mt-2 font-mono text-xs text-fg-faint">
                     {role.period}
